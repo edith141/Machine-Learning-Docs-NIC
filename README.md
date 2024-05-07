@@ -29,15 +29,15 @@ Supervised learning is widely used across various domains for tasks such as clas
 
 In unsupervised learning, the algorithm learns from unlabeled data, aiming to discover hidden patterns or structures within the data. Unlike supervised learning, there are no explicit output labels provided during training, and the algorithm must infer the underlying structure based solely on the input data.
 
-Examples of unsupervised learning include:
+Unsupervised learning finds applications in various fields where labeled data is scarce or unavailable. It is commonly used in:
 
 1. **Clustering**: Grouping similar data points together based on their inherent characteristics. For example, clustering customers based on purchasing behavior to identify market segments.
 
-2. **Dimensionality Reduction**: Reducing the number of input variables while preserving essential information. Principal Component Analysis (PCA) is a common technique used for dimensionality reduction in unsupervised learning.
+2. **Recommendation Systems**: Generating personalized recommendations for users based on their preferences and behaviors, commonly used in online streaming services, e-commerce platforms, and social media platforms.
 
-3. **Anomaly Detection**: Identifying unusual patterns or outliers in data that deviate from normal behavior. This can be applied in fraud detection, network security, or fault detection in industrial processes.
+3. **Natural Language Processing (NLP)**: Uncovering semantic relationships and structures in text data for tasks like document summarisation, sentiment analysis, and language translation.
 
-Unsupervised learning is valuable for exploratory data analysis, data preprocessing, and uncovering hidden patterns in large datasets where labeled data may be scarce or unavailable.
+
 
 ## Linear Regression
 
@@ -383,4 +383,5 @@ This will activate the `my_env` environment, and you can now install packages an
 	`pip install jupyterlab`
 	And once done, we can run it using the following command-
 	`jupyter lab`
+
 
