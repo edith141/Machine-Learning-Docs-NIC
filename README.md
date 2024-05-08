@@ -41,7 +41,7 @@ Unsupervised learning finds applications in various fields where labeled data is
 
 ## Linear Regression
 
-Linear regression is a supervised machine learning algorithm used to predict continuous values, such as sales figures or housing prices. It analyzes the relationship between two or more variables, where one variable, known as the dependent variable, is predicted based on the values of other variables, called independent variables.
+Linear regression is a supervised machine learning algorithm used to predict continuous values, such as sales figures or housing prices. It analyzes the relationship between two or more variables, where one variable, known as the **dependent variable**, is predicted based on the values of other variables, called **independent variables**.
 
 The fundamental concept behind linear regression is to model the linear relationship between the independent and dependent variables. This relationship is represented by a straight line, known as the **regression line**, which shows how the value of the dependent variable changes as the independent variable(s) vary. 
 
@@ -72,7 +72,7 @@ Predictive Analytics in Marketing**: Linear regression is widely used in marketi
 
 Among many other modules for machine learning, Scikit-learn provides the `LinearRegression` module, which is used to implement linear regression models. We can start with linear regression by importing this module from scikit-learn and using it to fit a linear regression model to your data.
 
-**Dataset Example**: We can use the Boston Housing dataset, which is already included in scikit-learn and provides information about housing prices in Boston. 
+**Dataset Example**: We can use the California Housing dataset, which is already included in scikit-learn and provides information about housing prices in California. 
 
 **Dataset Name**: California Housing Dataset
 
@@ -87,6 +87,40 @@ housing = fetch_california_housing()
 *Example implementation from scratch and more explanation -* https://github.com/edith141/LinearReg-scratch
 
 
+## Multiple Linear Regression
+
+Multiple linear regression is a supervised machine learning technique used to predict continuous values by analyzing the relationship between multiple independent variables and a single dependent variable. It extends the concept of linear regression by considering more than one predictor variable.
+
+The primary objective of multiple linear regression is to model the linear relationship between the independent variables (features) and the dependent variable. This relationship is represented by a linear equation of the form:
+
+**`y = w1*x1 + w2*x2 + ... + wn*xn + b`**
+
+Where:
+- **y**: The dependent variable being predicted.
+- **x1, x2, ..., xn**: Independent variables (features) influencing the dependent variable.
+- **w1, w2, ..., wn**: Coefficients (weights) representing the impact of each independent variable on the dependent variable.
+- **b**: Bias or intercept term.
+
+Multiple linear regression aims to find the optimal values of the coefficients (weights) and the bias term to minimize the difference between the predicted values and the actual values of the dependent variable.
+
+Multiple linear regression is widely used in various domains such as finance, marketing, and social sciences for tasks including sales forecasting, risk assessment, and demand prediction.
+
+### Library for Multiple Linear Regression (in Python):
+
+**Library Name**: Scikit-learn
+
+**Link**: [Scikit-learn](https://scikit-learn.org/)
+
+**Module to use**: `sklearn.linear_model.LinearRegression`
+
+As done in Linear Regression, we can use the same LinearRegression module in sklearn for multiple linear regression.
+
+**Dataset Example**: For this example, we can use the same California Housing dataset in scikit-learn that provides information about housing prices in different regions of California. We can load this dataset using the following code:
+
+```python
+from sklearn.datasets import fetch_california_housing
+housing = fetch_california_housing()
+```
 
 ## Logistic Regression
 
@@ -383,5 +417,4 @@ This will activate the `my_env` environment, and you can now install packages an
 	`pip install jupyterlab`
 	And once done, we can run it using the following command-
 	`jupyter lab`
-
 
