@@ -248,22 +248,72 @@ mnist = tf.keras.datasets.mnist
 *More on NN- https://www.ibm.com/cloud/learn/neural-networks*
 
 
-### Recurrent Neural Networks
+## Recurrent Neural Networks (RNN)
 
-Recurrent Neural Networks (RNNs) are a type of artificial neural network designed to effectively handle sequential data, where context is important, such as natural language processing, or image captioning. Unlike traditional feedforward neural networks, RNNs possess internal memory, allowing them to maintain context. RNNs take the output of a processing node and transmit the information back into the network. This results in theoretical "learning" and improvement of the network. 
+Recurrent Neural Networks (RNNs) are a class of neural networks designed to efficiently process sequential data, such as time-series data or natural language text. Unlike feedforward neural networks, which process each input independently, RNNs maintain an internal state (memory) that captures information about previous inputs. This recurrent connection allows RNNs to exhibit dynamic temporal behaviour and handle sequences of arbitrary length.
 
-This memory mechanism enables RNNs to process inputs of variable length and learn from past information to make predictions about future states. They are commonly used in tasks such as speech recognition, language translation, and sentiment analysis, where the order and context of input data are crucial. 
+RNNs are widely used in various applications, including natural language processing (NLP), speech recognition, sentiment analysis, and time-series forecasting. They excel in tasks that require capturing long-term dependencies and context information from sequential data.
 
-Learn more about RNNs- https://www.tensorflow.org/guide/keras/rnn
+One of the key components of an RNN is the hidden state, which represents the network's memory of previous inputs. At each time step, the hidden state is updated based on the current input and the previous hidden state, allowing the network to retain information over time.
+
+#### Library for Recurrent Neural Networks (in Python):
+**Library Name**: TensorFlow
+
+**Link**: [TensorFlow](https://www.tensorflow.org/)
+
+**Module to use**: `tensorflow.keras.layers.SimpleRNN` or `tensorflow.keras.layers.LSTM` or `tensorflow.keras.layers.GRU`
+
+TensorFlow provides various layers for implementing recurrent neural networks, including SimpleRNN, LSTM (Long Short-Term Memory), etc. These layers can be used to construct RNN architectures for different tasks and data types. We can start with RNNs in TensorFlow by using these layers within the `tensorflow.keras` module.
+
+**Dataset Example**: 
+You can use the IMDb dataset, which is a popular dataset for sentiment analysis of movie reviews. This dataset contains text sequences of movie reviews along with their corresponding labels (positive or negative sentiment).
+
+**Dataset Name**: IMDb Dataset
+
+You can load this dataset directly from TensorFlow using the following code:
+
+```python
+import tensorflow as tf
+imdb = tf.keras.datasets.imdb
+(X_train, y_train), (X_test, y_test) = imdb.load_data()
+```
+
+<br></br>
+*More about RNNs- https://www.tensorflow.org/guide/keras/rnn*
 
 
-### ResNets (Residual Neural Networks)
+## Residual Neural Networks (ResNets)
 
-With very deep neural networks, as the number of layers increase, all the weights receive update proportional to the derivative of the error function wrt to its current weight. In deep networks, this number reduces to very small (or to something not relevant) and weights will not be change effectively and it may completely stop the neural network from further training. This is called vanishing gradients. In other works,  we can say that the data is disappearing through the layers of the deep neural network due to very slow gradient descent. 
+Residual Neural Networks (ResNets) are a type of deep neural network architecture designed to address the vanishing gradient problem in very deep networks. Traditional deep neural networks often suffer from degradation (increased training error) as the network depth/number of layers increase, making it challenging to train extremely deep models.
 
-To counter this, ResNets were introduced, in which, a network is split into blocks and then passing the input into each block straight through to the next block, along with the residual output of the block minus the input to the block that is reintroduced, helping eliminate this problem. 
+ResNets introduce skip connections, also known as residual connections, that bypass one or more layers in the network. These skip connections allow the gradient to flow more directly through the network during training, mitigating the vanishing gradient problem and enabling the training of very deep networks.
 
-More about ResNets - https://en.wikipedia.org/wiki/Residual_neural_network
+ResNets are widely used in computer vision tasks, such as image classification, object detection, and image segmentation, where deep convolutional neural networks are required to learn complex hierarchical representations from visual data.
+
+#### Library for Residual Neural Networks (in Python):
+TensorFlow provides pre-trained ResNet models, including ResNet50, which can be used for various computer vision tasks out of the box. We can use these pre-trained models directly or fine-tune them to test/use them.
+
+**Library Name**: TensorFlow
+
+**Link**: [TensorFlow](https://www.tensorflow.org/)
+
+**Module to use**: `tensorflow.keras.applications.ResNet50`
+
+
+**Dataset Example**: 
+We can use the CIFAR-10 dataset, which is a popular benchmark dataset for image classification tasks. CIFAR-10 consists of 60,000 32x32 color images in 10 classes, with 6,000 images per class.
+
+**Dataset Name**: CIFAR-10 Dataset
+
+We can load this dataset directly from TensorFlow using the following code:
+
+```python
+import tensorflow as tf
+cifar10 = tf.keras.datasets.cifar10
+(X_train, y_train), (X_test, y_test) = cifar10.load_data()
+```
+
+*More about ResNets - https://en.wikipedia.org/wiki/Residual_neural_network*
 
 
 ## Data Augmentaion and filtering, clenaning- 
@@ -418,4 +468,3 @@ This will activate the `my_env` environment, and you can now install packages an
 	And once done, we can run it using the following command-
 	`jupyter lab`
 
-TEST
