@@ -1,4 +1,5 @@
 
+
 # Python - ML & Analytics
 
 
@@ -198,6 +199,186 @@ Scikit-learn provides a variety of algorithms and modules for binary classificat
 `sklearn.ensemble.RandomForestClassifier`, 
 etc...
 
+---
+**K-Means Clustering**
+
+K-Means Clustering is an unsupervised machine learning algorithm used for partitioning data into clusters based on similarity. It aims to group data points into k clusters where each data point belongs to the cluster with the nearest mean.
+
+**Algorithm Overview:**
+
+1. **Initialization:** Choose k initial cluster centroids randomly from the data points.
+
+2. **Assignment:** Assign each data point to the nearest cluster centroid based on a distance metric, such as Euclidean distance.
+
+3. **Update Centroids:** Update the cluster centroids by computing the mean of all data points assigned to each cluster.
+
+4. **Repeat:** Repeat steps 2 and 3 until convergence, where the cluster assignments and centroids no longer change significantly.
+
+**Mathematical Representation:**
+
+In K-Means Clustering, the objective is to minimize the within-cluster sum of squares, which can be mathematically represented as:
+
+$$
+\underset{C}{\text{argmin}} \sum_{i=1}^{k} \sum_{x \in C_i} ||x - \mu_i||^2
+$$
+
+
+Where:
+
+-   C is the set of clusters.
+-   Ci​ is the i-th cluster.
+-   μi is the centroid of the i-th cluster.
+
+**Applications:**
+
+1. **Customer Segmentation:** K-Means Clustering can segment customers based on their purchasing behavior or demographic information for targeted marketing strategies.
+
+2. **Image Compression:** K-Means Clustering can reduce the number of colors in an image by clustering similar pixel values together, resulting in compressed images.
+
+3. **Document Clustering:** K-Means Clustering can cluster text documents based on their content for topic modeling or document organization.
+
+4. **Anomaly Detection:** K-Means Clustering can identify outliers or anomalous data points by assigning them to a separate cluster.
+
+**Library and Module:**
+
+- Library Name: Scikit-learn
+- Module to Use: `sklearn.cluster.KMeans`
+
+---
+
+**Support Vector Machines (SVM)**
+
+Support Vector Machines (SVM) is a versatile supervised machine learning algorithm used for classification, regression, and outlier detection tasks. It finds the optimal hyperplane that best separates data points into different classes or fits a nonlinear function to the data.
+
+**Algorithm Overview:**
+
+1. **Maximizing Margin:** SVM aims to maximize the margin between classes, which is the distance between the hyperplane and the nearest data points from each class, also known as support vectors.
+
+2. **Kernel Trick:** SVM can efficiently handle non-linear decision boundaries by mapping input features into a higher-dimensional space using kernel functions.
+
+3. **Regularization:** SVM includes a regularization parameter (C) to balance between maximizing the margin and minimizing classification errors on the training data.
+
+**Mathematical Representation:**
+
+In classification scenarios, the decision boundary (hyperplane) can be represented as:
+
+$$w^tx+b=0$$
+
+Where:
+- $w$ is the weight vector.
+- $x$ is the input feature vector.
+- $b$ is the bias term.
+
+The classification decision is made based on the sign of \( w^Tx + b \).
+
+**Applications:**
+
+1. **Multi-class Classification:** SVMs can be extended to handle multi-class classification problems by using strategies like one-vs-rest (OvR) or one-vs-one (OvO) classification.
+
+2. **Regression:** SVMs can be used for regression tasks by fitting a hyperplane to the data that best predicts continuous target variables.
+
+3. **Outlier Detection:** SVMs can detect outliers in data by identifying data points that lie farthest from the decision boundary.
+
+4. **Anomaly Detection:** SVMs can identify anomalies or unusual patterns in data, such as fraudulent transactions in financial transactions or defects in manufacturing processes.
+
+**Library and Module:**
+
+- Library Name: Scikit-learn
+- Module to Use: `sklearn.svm.SVC` for classification, `sklearn.svm.SVR` for regression, and `sklearn.svm.OneClassSVM` for outlier detection.
+
+**Example Dataset:**
+
+- Various datasets are available in Scikit-learn or can be sourced from real-world applications for experimentation.
+
+**Use Cases:**
+
+1. **Handwritten Digit Recognition:** SVMs can classify handwritten digits into multiple classes (0-9) based on pixel intensities in images.
+
+2. **Facial Expression Recognition:** SVMs can recognize facial expressions, such as happy, sad, angry, or neutral, from images or video frames.
+
+3. **Stock Price Prediction:** SVMs can predict stock prices by analyzing historical stock data and identifying patterns that indicate potential price movements.
+
+4. **Text Categorization:** SVMs can classify text documents into multiple categories, such as news articles, emails, or product reviews.
+
+5. **Fault Diagnosis:** SVMs can detect faults or anomalies in industrial machinery based on sensor data, helping to prevent breakdowns and improve maintenance scheduling.
+
+
+---
+
+
+## Principal Component Analysis (PCA)
+
+Principal Component Analysis (PCA) is a dimensionality reduction technique used to transform high-dimensional data into a lower-dimensional space while preserving most of the original data's variance. It achieves this by identifying the principal components, which are orthogonal vectors that capture the directions of maximum variance in the data.
+
+final sklearn
+For example, in the above image, the red values are the values predicted by the Linear Regression model and the green values are the original data values (input). The red line is the regression line that can be used to predict future values.
+
+**Algorithm Overview:**
+
+1. **Standardization:** Standardize the features by subtracting the mean and dividing by the standard deviation.
+
+2. **Compute Covariance Matrix:** Calculate the covariance matrix of the standardized data.
+
+3. **Eigenvalue Decomposition:** Compute the eigenvectors and eigenvalues of the covariance matrix.
+
+4. **Select Principal Components:** Sort the eigenvectors based on their corresponding eigenvalues and select the top \( k \) eigenvectors as the principal components.
+
+5. **Transform Data:** Project the original data onto the selected principal components to obtain the lower-dimensional representation.
+
+**Mathematical Representation:**
+
+The covariance matrix \( \Sigma \) of the standardized data matrix \( X \) is computed as:
+
+$$
+\Sigma = \frac{1}{n-1} (X - \bar{X})^T (X - \bar{X})
+$$
+
+The eigenvectors \( \mathbf{v}_1, \mathbf{v}_2, ..., \mathbf{v}_d \) and corresponding eigenvalues \( \lambda_1, \lambda_2, ..., \lambda_d \) of \( \Sigma \) satisfy the equation:
+
+$$
+\Sigma \mathbf{v}_i = \lambda_i \mathbf{v}_i
+$$
+
+After sorting the eigenvectors based on their corresponding eigenvalues in descending order, the top \( k \) eigenvectors are selected as the principal components \( \mathbf{V} \).
+
+The lower-dimensional representation of the data \( X' \) is obtained by projecting the original data onto the principal components:
+
+$$
+X' = X \cdot \mathbf{V}
+$$
+
+**Applications:**
+
+1. **Dimensionality Reduction:** PCA is widely used for reducing the dimensionality of high-dimensional datasets while preserving most of the variance, making it easier to visualize and analyze data.
+
+2. **Feature Extraction:** PCA can be used to extract the most important features from the data, leading to better performance in downstream machine learning tasks.
+
+3. **Noise Reduction:** PCA can help in removing noise and redundant information from data, improving the signal-to-noise ratio.
+
+4. **Image Compression:** PCA is used in image processing for compressing images by representing them in a lower-dimensional space without significant loss of information.
+
+
+### Implementation Example in Python
+
+```python
+from sklearn.decomposition import PCA
+from sklearn.datasets import load_iris
+
+# Load Iris dataset
+iris = load_iris()
+X, y = iris.data, iris.target
+
+# Apply PCA
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X)
+
+print("Original shape:", X.shape)
+print("Transformed shape:", X_pca.shape)
+```
+
+This demonstrates how to perform PCA using the `PCA` class from scikit-learn. It reduces the dimensionality of the Iris dataset to 2 dimensions.
+
+---
 
 ## Neural Networks
 
